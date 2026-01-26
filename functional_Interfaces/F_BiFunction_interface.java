@@ -9,7 +9,7 @@ public class F_BiFunction_interface {
 
 	public static void main(String[] args) {
 	
-/*
+/* BiFunction<T,U,R>
  * It represents a function which takes in two arguments and produces a result. 👉 It takes TWO inputs and returns ONE output.
  * Hence this functional interface which takes in 3 parameters namely:-
  * 
