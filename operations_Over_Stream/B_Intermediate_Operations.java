@@ -1,6 +1,8 @@
 package stream_API.operations_Over_Stream;
 
+import java.util.Arrays;
 import java.util.List;
+
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -39,7 +41,8 @@ public class B_Intermediate_Operations {
 	Predicate<Integer> pre = (p) -> {return p > 60;};  // for filter()
 	
 		
-			list.stream()
+//		Optional<Integer> as=	
+				list.stream()
 						.map(fun)   // function implementing
 //		map(Function<T, R>): Transforms each element of the Stream into another form using the provided function.
 						
@@ -52,7 +55,7 @@ public class B_Intermediate_Operations {
 						.sorted((i,j) -> {return Integer.compare(j, i); } )  // Comparator implementing
 //				sorted(Comparator?)	: Sorts the elements using comparator Interface like custom sorting.	
 						
-						.peek((c) -> {System.out.println(">>" + c);})  // Consumer implementing
+//						.peek((c) -> {System.out.println(">>" + c);})  // Consumer implementing
 // 				Debug /perform action without changing stream,
 //				Performs a specified action on each element of the Stream without consuming the elements.	
 						
@@ -60,18 +63,23 @@ public class B_Intermediate_Operations {
 //				Removes duplicate elements from the Stream.	 It returns a stream consisting of the 
 //						distinct elements (according to Object.equals(Object)).	
 						
-						.skip(2)  // (Skips) Ignore the first n elements, Process the remaining elements
+						.skip(1)  // (Skips) Ignore the first n elements, Process the remaining elements
 //	 If this stream contains fewer than n elements then an empty stream will be returned.
 //						✔ skip() consumes elements silently
 						
 						
-						.limit(5)  // limit() is mandatory for infinite streams.⚠ Without limit() → infinite loop
+						.limit(8)  // limit() is mandatory for infinite streams.⚠ Without limit() → infinite loop
 //	It returns a stream consisting of the elements of this stream, truncated to be no longer than maxSize in length.
 //  						✔ limit() short-circuits the stream
+						
+						.flatMap((i) -> {return Arrays.stream(i)})
+//flatMap() transforms each element into a stream and then flattens all those streams into a single stream.						
 						
 						
 						
 						.forEach((f) -> System.out.println(f)); // Terminal operations  Consumer implementing
+		
+		
 		
 			System.out.println("******************************************");
 			
