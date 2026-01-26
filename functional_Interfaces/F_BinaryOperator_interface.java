@@ -6,7 +6,8 @@ public class F_BinaryOperator_interface {
 
 	public static void main(String[] args) {
 		
-/*
+/* BinaryOperator<T> internally works BinaryOperator<T,T,T> == BiFunction<T,U,R>
+ * 
  * This functional interface which takes in one generic namely:-   T apply(T t1, T t2);
 	T: denotes the type of the input arguments and the return value of the operation	
  *  👉 It takes TWO inputs of the SAME type and
