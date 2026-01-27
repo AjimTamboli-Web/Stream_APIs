@@ -1,6 +1,5 @@
 package stream_API.operations_Over_Stream;
 
-import java.util.Arrays;
 import java.util.List;
 
 import java.util.function.Function;
@@ -72,7 +71,7 @@ public class B_Intermediate_Operations {
 //	It returns a stream consisting of the elements of this stream, truncated to be no longer than maxSize in length.
 //  						✔ limit() short-circuits the stream
 						
-						.flatMap((i) -> {return Arrays.stream(i)})
+//						.flatMap( depth implement here)
 //flatMap() transforms each element into a stream and then flattens all those streams into a single stream.						
 						
 						
