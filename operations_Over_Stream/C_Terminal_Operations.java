@@ -21,8 +21,12 @@ public class C_Terminal_Operations {
 		List.of(3,6,58,9,2,9,54,1,75,2)
 		.stream()
 		
+//		.max((i,j) -> (Integer.compare(i, j)))         // max value return in a Optional [ ]
+		.min((i,j) -> {return Integer.compare(i, j);}) // min value return in a Optional [ ]
+		
+		
 //		.reduce(1,(i,j) -> {return i*j;})   // using identity()
-		.reduce(0,(i,j) -> {return i+j;})   // using identity()
+//		.reduce(0,(i,j) -> {return i+j;})   // using identity()
 //		.reduce((i, j) -> {return i+j;})    // using Optional
 		
 //		.anyMatch((a) -> {return a < 10;})
@@ -44,12 +48,14 @@ public class C_Terminal_Operations {
 			            return l1;
 			        }
 			    );
+		
 		Collector<Integer, List<Integer>, List<Integer>> oddCollector = 
-				Collector.of(LinkedList::new,
-					(li, str	) -> {
+				Collector.of(
+					LinkedList::new, 	   // supplier
+					(li, str	) -> {			 // accumulator
 						if (str % 2 == 1) li.add(str);
 					},
-					(l1,l2) -> {
+					(l1,l2) -> { 			// combiner
 						l1.addAll(l2);
 						return l1;
 					}
